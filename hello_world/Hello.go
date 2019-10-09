@@ -9,12 +9,13 @@ func Hello(name string, language string) string {
 		name = "world"
 	}
 
-	if language == "Chinese" {
-		return ChineseHelloPrefix + name
+	prefix := helloPrefix
+	
+	switch language {
+	case "French":
+		prefix = FrenchHelloPrefix
+	case "Chinese":
+		prefix = ChineseHelloPrefix
 	}
-
-	if language == "French" {
-		return FrenchHelloPrefix + name
-	}
-	return helloPrefix + name
+	return prefix + name
 }
